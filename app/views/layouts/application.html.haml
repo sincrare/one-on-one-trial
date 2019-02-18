@@ -1,0 +1,20 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title OneOnOne
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+  %body
+    .main.container-fluid
+      - if notice
+        %p.notice= notice
+      - if alert
+        %p.alert= alert
+      = yield
+
+    %footer
+      %p
+        %small
+          Copyright (C) 2019 sincrare All Rights Reserved.
