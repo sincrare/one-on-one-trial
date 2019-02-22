@@ -36,3 +36,4 @@
 /vendor/bundle/*
 /public/uploads/*
 /coverage/*
+.env
