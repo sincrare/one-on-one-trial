@@ -1,7 +1,7 @@
-%h1 Editing question_board
+%h1 質問ボードを編集する
 
 = render 'form'
 
-= link_to 'Show', @question_board
+= link_to '詳細', loggedin_question_board_path(@question_board)
 \|
-= link_to 'Back', loggedin_question_boards_path
+= link_to '戻る', loggedin_question_boards_path

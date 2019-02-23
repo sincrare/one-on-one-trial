@@ -1,0 +1,6 @@
+.nested-fields
+  .input-group
+    = f.input :content, label: false
+    .input-group-btn
+      = link_to_remove_association "削除", f, class: 'btn btn-danger'
+  %br
