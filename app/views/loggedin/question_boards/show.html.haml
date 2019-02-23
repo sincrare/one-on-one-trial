@@ -1,9 +1,10 @@
-%p#notice= notice
-
+%h1= @question_board.title
 %p
-  %b Title:
-  = @question_board.title
+  %b 質問
+  %ul
+    - @question_board.questions.each do |question|
+      %li= question.content
 
-= link_to 'Edit', edit_loggedin_question_board_path(@question_board)
+= link_to '編集する', edit_loggedin_question_board_path(@question_board)
 \|
-= link_to 'Back', loggedin_question_boards_path
+= link_to '戻る', loggedin_question_boards_path

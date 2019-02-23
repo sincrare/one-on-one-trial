@@ -1,21 +1,17 @@
-%h1 Listing question_boards
+%h1 質問ボード一覧
 
-%table
+%table.table.table-bordered.table-striped
   %thead
     %tr
-      %th Title
-      %th
-      %th
-      %th
+      %th タイトル
+      %th{ style: 'width: 50px' }
+      %th{ style: 'width: 50px' }
 
   %tbody
     - @question_boards.each do |question_board|
       %tr
-        %td= question_board.title
-        %td= link_to 'Show', loggedin_question_board_path(question_board)
-        %td= link_to 'Edit', edit_loggedin_question_board_path(question_board)
-        %td= link_to 'Destroy', loggedin_question_board_path(question_board), method: :delete, data: { confirm: 'Are you sure?' }
+        %td{ style: 'vertical-align: middle' }= link_to question_board.title, loggedin_question_board_path(question_board)
+        %td= link_to '編集', edit_loggedin_question_board_path(question_board), class: 'btn btn-success'
+        %td= link_to '削除', loggedin_question_board_path(question_board), class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' }
 
-%br
-
-= link_to 'New Question board', new_loggedin_question_board_path
+= link_to '質問ボードを作成する', new_loggedin_question_board_path, class: 'btn btn-primary'

@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2019_02_23_203503) do
   create_table "answers", force: :cascade do |t|
     t.bigint "answer_board_id"
     t.bigint "question_id"
-    t.text "content"
+    t.text "content", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["answer_board_id"], name: "index_answers_on_answer_board_id"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2019_02_23_203503) do
 
   create_table "question_boards", force: :cascade do |t|
     t.bigint "user_id"
-    t.string "title"
+    t.string "title", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_question_boards_on_user_id"
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2019_02_23_203503) do
 
   create_table "questions", force: :cascade do |t|
     t.bigint "question_board_id"
-    t.string "content"
+    t.string "content", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_board_id"], name: "index_questions_on_question_board_id"

@@ -6,6 +6,7 @@
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     .main.container-fluid
       - if notice
@@ -14,6 +15,7 @@
         %p.alert= alert
       = yield
 
+    %br
     %footer
       %p
         %small

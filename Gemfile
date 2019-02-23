@@ -6,6 +6,7 @@ ruby '2.6.1'
 gem 'rails', '~> 5.2.2'
 gem 'pg'
 gem 'puma'
+gem 'turbolinks'
 gem 'sassc-rails'
 gem 'haml-rails'
 gem 'simple_form'
@@ -17,6 +18,7 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'dotenv-rails'
 gem 'font-awesome-sass'
+gem 'cocoon'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

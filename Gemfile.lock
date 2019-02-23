@@ -54,6 +54,7 @@ GEM
       sassc (>= 2.0.0)
     builder (3.2.3)
     byebug (11.0.0)
+    cocoon (1.2.12)
     concurrent-ruby (1.1.4)
     crass (1.0.4)
     devise (4.6.1)
@@ -224,6 +225,9 @@ GEM
     thor (0.20.3)
     thread_safe (0.3.6)
     tilt (2.0.9)
+    turbolinks (5.2.0)
+      turbolinks-source (~> 5.2)
+    turbolinks-source (5.2.0)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     warden (1.2.8)
@@ -244,6 +248,7 @@ DEPENDENCIES
   bootsnap (>= 1.1.0)
   bootstrap-sass
   byebug
+  cocoon
   devise
   dotenv-rails
   font-awesome-sass
@@ -260,6 +265,7 @@ DEPENDENCIES
   simple_form
   spring
   spring-watcher-listen
+  turbolinks
   tzinfo-data
   web-console
 
