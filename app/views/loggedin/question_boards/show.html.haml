@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @question_board.title
+
+= link_to 'Edit', edit_loggedin_question_board_path(@question_board)
+\|
+= link_to 'Back', loggedin_question_boards_path

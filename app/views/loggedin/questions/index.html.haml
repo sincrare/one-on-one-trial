@@ -1,0 +1,21 @@
+%h1 Listing questions
+
+%table
+  %thead
+    %tr
+      %th Content
+      %th
+      %th
+      %th
+
+  %tbody
+    - @questions.each do |question|
+      %tr
+        %td= question.content
+        %td= link_to 'Show', loggedin_question_path(question)
+        %td= link_to 'Edit', edit_loggedin_question_path(question)
+        %td= link_to 'Destroy', loggedin_question_path(question), method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Question', new_loggedin_question_path

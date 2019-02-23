@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Content:
+  = @question.content
+
+= link_to 'Edit', edit_loggedin_question_path(@question)
+\|
+= link_to 'Back', loggedin_questions_path
