@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :trackable, :omniauthable, omniauth_providers: [:google]
 
+  has_many :question_boards
+
   def self.find_for_google(auth)
     user = User.find_by(email: auth.info.email)
 

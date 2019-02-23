@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :answers
+  resources :answer_boards
   root to: "loggedin/question_boards#index"
   get "login/index"
 

@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Email:
+  = @answer_board.email
+%p
+  %b Name:
+  = @answer_board.name
+%p
+  %b Token:
+  = @answer_board.token
+
+= link_to 'Edit', edit_answer_board_path(@answer_board)
+\|
+= link_to 'Back', answer_boards_path

@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Answerboard:
+  = @answer.AnswerBoard
+%p
+  %b Question:
+  = @answer.Question
+%p
+  %b Content:
+  = @answer.content
+
+= link_to 'Edit', edit_answer_path(@answer)
+\|
+= link_to 'Back', answers_path

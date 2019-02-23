@@ -1,0 +1,25 @@
+%h1 Listing answer_boards
+
+%table
+  %thead
+    %tr
+      %th Email
+      %th Name
+      %th Token
+      %th
+      %th
+      %th
+
+  %tbody
+    - @answer_boards.each do |answer_board|
+      %tr
+        %td= answer_board.email
+        %td= answer_board.name
+        %td= answer_board.token
+        %td= link_to 'Show', answer_board
+        %td= link_to 'Edit', edit_answer_board_path(answer_board)
+        %td= link_to 'Destroy', answer_board, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Answer board', new_answer_board_path
