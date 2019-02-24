@@ -1,5 +1,7 @@
 class AnswerBoard < ApplicationRecord
   belongs_to :question_board
 
-  validates :name, presence: true
+  validates :email, presence: true
+
+  has_secure_token
 end

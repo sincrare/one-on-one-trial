@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2019_02_23_203503) do
   create_table "answer_boards", force: :cascade do |t|
     t.bigint "question_board_id"
     t.string "email", null: false
-    t.string "name", null: false
+    t.string "name"
     t.string "token", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

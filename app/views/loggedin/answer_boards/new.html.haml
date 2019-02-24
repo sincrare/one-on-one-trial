@@ -1,0 +1,13 @@
+%h1 質問への回答を依頼する
+
+= simple_form_for(@answer_board, url: loggedin_question_board_answer_boards_path(@question_board)) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    = f.input :email
+
+  .form-actions
+    = f.button :submit
+
+= link_to 'Back', loggedin_question_boards_path
