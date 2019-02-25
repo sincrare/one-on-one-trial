@@ -1,0 +1,23 @@
+%header
+  %nav.navbar.navbar-default
+    .container-fluid
+      .navbar-header
+        %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+          %span.sr-only Toggle navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        .navbar-brand
+          = link_to '1 ON 1', root_path
+      .collapse.navbar-collapse.navbar-right
+        %ul.nav.navbar-nav
+          - if user_signed_in?
+            %li
+              %p.navbar-text
+                Login as
+                %strong= current_user.email
+            %li
+              = link_to 'ログアウト', destroy_user_session_path, method: :delete
+          - else
+            %li
+              = link_to 'ログイン', new_user_session_path

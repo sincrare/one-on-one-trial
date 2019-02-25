@@ -19,6 +19,8 @@ gem 'omniauth-google-oauth2'
 gem 'dotenv-rails'
 gem 'font-awesome-sass'
 gem 'cocoon'
+gem 'omniauth-line'
+gem 'omniauth-yahoojp'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

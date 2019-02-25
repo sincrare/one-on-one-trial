@@ -261,10 +261,21 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   config.omniauth :google_oauth2,
-                  ENV['GOOGLE_APP_ID'], # 環境変数に先ほど控えたクライアントIDを入れておく
-                  ENV['GOOGLE_APP_SECRET'], # 環境変数に先ほど控えたシークレットを入れておく
+                  ENV['GOOGLE_APP_ID'],
+                  ENV['GOOGLE_APP_SECRET'],
                   name: :google,
                   scope: %w(email)
+
+  config.omniauth :line,
+                  ENV['LINE_APP_ID'],
+                  ENV['LINE_APP_SECRET'],
+                  name: :line
+
+  config.omniauth :yahoojp,
+                  ENV['YAHOOJP_KEY'],
+                  ENV['YAHOOJP_SECRET'],
+                  name: :yahoojp,
+                  scope: 'openid profile email address'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
