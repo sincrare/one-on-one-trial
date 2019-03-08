@@ -21,11 +21,11 @@ gem 'font-awesome-sass'
 gem 'cocoon'
 gem 'omniauth-line'
 gem 'omniauth-yahoojp'
+gem "letter_opener_web"
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
-  gem "letter_opener_web"
 end
 
 group :development do
