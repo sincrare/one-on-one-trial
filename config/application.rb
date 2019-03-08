@@ -30,5 +30,6 @@ module OneOnOne
       g.helper false
       g.test_framework :rspec, view_specs: false, helper_specs: false, routing_specs: false
     end
+    config.assets.initilize_on_precompile = false
   end
 end
