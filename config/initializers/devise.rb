@@ -269,13 +269,12 @@ Devise.setup do |config|
   config.omniauth :line,
                   ENV['LINE_APP_ID'],
                   ENV['LINE_APP_SECRET'],
-                  name: :line
+                  scope: 'openid profile email'
 
   config.omniauth :yahoojp,
                   ENV['YAHOOJP_KEY'],
                   ENV['YAHOOJP_SECRET'],
-                  name: :yahoojp,
-                  scope: 'openid profile email address'
+                  scope: 'openid profile email'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

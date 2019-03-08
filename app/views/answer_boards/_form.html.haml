@@ -1,12 +1,15 @@
 -# frozen_string_literal: true
-= simple_form_for(@answer_board) do |f|
+= simple_form_for(@answer_board, url: answer_board_path(@answer_board.token)) do |f|
   = f.error_notification
   = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
 
   .form-inputs
-    = f.input :email
     = f.input :name
-    = f.input :token
+
+  %p 質問
+  .form-inputs
+    = f.simple_fields_for :answers do |answer_form|
+      = render 'answer_fields', f: answer_form
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, '回答を登録する', class: 'btn btn-primary'

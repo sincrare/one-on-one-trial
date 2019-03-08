@@ -1,13 +1,15 @@
 %p
-  %b Email:
+  %b メールアドレス:
   = @answer_board.email
 %p
-  %b Name:
+  %b 名前:
   = @answer_board.name
 %p
-  %b Token:
-  = @answer_board.token
+  %b 回答:
+  %ul
+    - @answer_board.answers.each do |answer|
+      %li
+        %b= answer.question.content
+        %p= answer.content
 
-= link_to 'Edit', edit_answer_board_path(@answer_board)
-\|
-= link_to 'Back', answer_boards_path
+= link_to '再編集', edit_answer_board_path(@answer_board.token)

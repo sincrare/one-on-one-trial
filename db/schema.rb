@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2019_02_23_203503) do
   create_table "answers", force: :cascade do |t|
     t.bigint "answer_board_id"
     t.bigint "question_id"
-    t.text "content", null: false
+    t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["answer_board_id"], name: "index_answers_on_answer_board_id"
@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 2019_02_23_203503) do
     t.string "meta"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true
   end
 
   add_foreign_key "answer_boards", "question_boards"
