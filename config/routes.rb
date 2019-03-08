@@ -14,7 +14,5 @@ Rails.application.routes.draw do
 
   resources :answer_boards, param: 'token', only: [:show, :edit, :update]
 
-  if Rails.env.development?
-    mount LetterOpenerWeb::Engine, at: '/letter_opener'
-  end
+  mount LetterOpenerWeb::Engine, at: '/letter_opener'
 end
