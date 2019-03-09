@@ -62,8 +62,8 @@ ActiveRecord::Schema.define(version: 2019_02_23_203503) do
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
     t.string "users"
-    t.string "provider"
-    t.string "uid"
+    t.string "provider", null: false
+    t.string "uid", null: false
     t.string "token"
     t.string "meta"
     t.datetime "created_at", null: false
