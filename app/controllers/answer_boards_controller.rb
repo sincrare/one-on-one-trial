@@ -17,7 +17,8 @@ class AnswerBoardsController < ApplicationController
 
   private
     def set_answer_board
-      @answer_board = AnswerBoard.find_by(token: params[:token])
+      # 見つからなかった時に404を出したいのでfind_by!がよさそう
+      @answer_board = AnswerBoard.find_by!(token: params[:token])
     end
 
     def answer_board_params
