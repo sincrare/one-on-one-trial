@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   namespace :loggedin do
     resources :question_boards do
+      # resourcesがいいかも
       resource :answer_boards, only: [:new, :create]
     end
   end

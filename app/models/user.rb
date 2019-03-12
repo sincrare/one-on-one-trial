@@ -3,6 +3,7 @@ class User < ApplicationRecord
 
   has_many :question_boards
 
+  # 呼び出し元でまとめられそう
   def self.find_for_google(auth)
     find_for_omniauth(auth)
   end

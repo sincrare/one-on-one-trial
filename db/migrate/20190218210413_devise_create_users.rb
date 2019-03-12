@@ -34,6 +34,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       # t.datetime :locked_at
 
       ## Google Auth
+      # :users要らない
       t.string :users, :provider, null: false
       t.string :users, :uid, null: false
       t.string :users, :token
