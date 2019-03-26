@@ -1,18 +1,20 @@
 class AnswerBoard < ApplicationRecord
   belongs_to :question_board
   has_many :answers
-  accepts_nested_attributes_for :answers, allow_destroy: true, reject_if: :all_blank
-  after_create :create_answers
+  # 解答欄は削除されないので、allow_destroyは不要
+  accepts_nested_attributes_for :answers, reject_if: :all_blank
+
+  # save!を自分で呼ばなくてよくなるのでbefore_createでanswersをつくっておく
+  before_create :create_answers
 
   validates :email, presence: true
 
   has_secure_token
   private
 
-  def create_answers
+  def build_answers
     question_board.questions.each do |question|
-      answers.create(question_id: question.id)
+      answers.build(question: question)
     end
-    save!(validate: false)
   end
 end
