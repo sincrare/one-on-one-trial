@@ -12,7 +12,7 @@
     - @question_boards.each do |question_board|
       %tr
         %td{ style: 'vertical-align: middle' }= link_to question_board.title, loggedin_question_board_path(question_board)
-        %td= link_to '回答してもらう', new_loggedin_question_board_answer_boards_path(question_board), class: 'btn btn-warning'
+        %td= link_to '回答してもらう', new_loggedin_question_board_answer_board_path(question_board), class: 'btn btn-warning'
         %td= link_to '編集', edit_loggedin_question_board_path(question_board), class: 'btn btn-success'
         %td= link_to '削除', loggedin_question_board_path(question_board), class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' }
 

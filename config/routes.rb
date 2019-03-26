@@ -8,11 +8,11 @@ Rails.application.routes.draw do
 
   namespace :loggedin do
     resources :question_boards do
-      resource :answer_boards, only: [:new, :create]
+      resources :answer_boards, only: %i(new create)
     end
   end
 
-  resources :answer_boards, param: 'token', only: [:show, :edit, :update]
+  resources :answer_boards, param: 'token', only: %i(show edit update)
 
   mount LetterOpenerWeb::Engine, at: '/letter_opener'
 end
