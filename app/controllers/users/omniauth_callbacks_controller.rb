@@ -2,37 +2,26 @@
 
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def google
-    @user = User.find_for_google(request.env['omniauth.auth'])
-
-    if @user.persisted?
-      flash[:notice] = I18n.t 'devise.omniauth_callbacks.success', kind: 'Google'
-      sign_in_and_redirect @user, event: :authentication
-    else
-      session['devise.google_data'] = request.env['omniauth.auth']
-      redirect_to new_user_registration_url
-    end
+    omniauth!('Google')
   end
 
   def line
-    @user = User.find_for_line(request.env['omniauth.auth'])
-
-    if @user.persisted?
-      flash[:notice] = I18n.t 'devise.omniauth_callbacks.success', kind: 'LINE'
-      sign_in_and_redirect @user, event: :authentication
-    else
-      session['devise.google_data'] = request.env['omniauth.auth']
-      redirect_to new_user_registration_url
-    end
+    omniauth!('LINE')
   end
 
   def yahoojp
-    @user = User.find_for_yahoojp(request.env['omniauth.auth'])
+    omniauth!('YAHOO ID')
+  end
+
+  private
+
+  def omniauth!(provider_name)
+    @user = User.find_for_omniauth!(request.env['omniauth.auth'])
 
     if @user.persisted?
-      flash[:notice] = I18n.t 'devise.omniauth_callbacks.success', kind: 'YAHOO ID'
+      flash[:notice] = I18n.t 'devise.omniauth_callbacks.success', kind: provider_name
       sign_in_and_redirect @user, event: :authentication
     else
-      session['devise.google_data'] = request.env['omniauth.auth']
       redirect_to new_user_registration_url
     end
   end

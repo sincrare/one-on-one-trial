@@ -1,8 +1,8 @@
 class Loggedin::QuestionBoardsController < Loggedin::ApplicationController
-  before_action :set_question_board, only: [:show, :edit, :update, :destroy]
+  before_action :set_question_board, only: %i(show edit update destroy)
 
   def index
-    @question_boards = current_user.question_boards.all
+    @question_boards = current_user.question_boards.order(created_at: :desc)
   end
 
   def show
@@ -16,7 +16,7 @@ class Loggedin::QuestionBoardsController < Loggedin::ApplicationController
   end
 
   def create
-    @question_board = current_user.question_boards.new(question_board_params)
+    @question_board = current_user.question_boards.build(question_board_params)
 
     if @question_board.save
       redirect_to loggedin_question_board_path(@question_board), notice: 'Question board was successfully created.'
@@ -34,7 +34,7 @@ class Loggedin::QuestionBoardsController < Loggedin::ApplicationController
   end
 
   def destroy
-    @question_board.destroy
+    @question_board.destroy!
     redirect_to loggedin_question_boards_url, notice: 'Question board was successfully destroyed.'
   end
 

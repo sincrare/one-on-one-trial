@@ -1,5 +1,5 @@
 class Loggedin::AnswerBoardsController < Loggedin::ApplicationController
-  before_action :set_question_board, only: [:new, :create]
+  before_action :set_question_board, only: %i(new create)
 
   def new
     @answer_board = @question_board.answer_boards.new
